@@ -15,9 +15,12 @@ $.fn.extend
 
       el.bind 'ajax:complete', (event, xhr, status) ->
         doc = createDocument xhr.responseText
+        location = xhr.getResponseHeader 'X-XHR-Current-Location'        
 
-        TL.changePage TL.extractTitleAndBody(doc)...
-        TL.reflectNewUrl xhr
+        TL.changePage TL.extractTitleAndBody(doc)...        
+        if location
+          url = "#{document.location.protocol}//#{document.location.host}#{location}"
+          TL.reflectNewUrl url
         TL.resetScrollPosition()
         TL.triggerEvent 'page:load'
 
