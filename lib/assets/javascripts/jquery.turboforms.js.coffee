@@ -17,7 +17,7 @@ $.fn.extend
         doc = createDocument xhr.responseText
 
         TL.changePage TL.extractTitleAndBody(doc)...
-        TL.reflectRedirectedUrl xhr
+        TL.reflectNewUrl xhr
         TL.resetScrollPosition()
         TL.triggerEvent 'page:load'
 
