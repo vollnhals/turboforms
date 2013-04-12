@@ -17,10 +17,13 @@ $.fn.extend
         doc = createDocument xhr.responseText
         location = xhr.getResponseHeader 'X-XHR-Current-Location'        
 
-        TL.changePage TL.extractTitleAndBody(doc)...        
+        TL.changePage TL.extractTitleAndBody(doc)...   
+        
         if location
+          TL.cacheCurrentPage
           url = "#{document.location.protocol}//#{document.location.host}#{location}"
           TL.reflectNewUrl url
+          
         TL.resetScrollPosition()
         TL.triggerEvent 'page:load'
 
