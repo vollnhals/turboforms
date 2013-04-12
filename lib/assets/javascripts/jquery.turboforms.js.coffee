@@ -3,7 +3,7 @@ TL = Turbolinks
 
 $.fn.extend
   turboForms: (options) ->
-    return @find('input[type="submit"]').each (i, el) ->
+    return @each (i, el) ->
       createDocument = TL.browserCompatibleDocumentParser()
       el = $(el)
 
