@@ -12,6 +12,7 @@ $.fn.extend
 
       el.bind 'ajax:beforeSend', (event, data, status, xhr) ->
         TL.triggerEvent 'page:fetch'
+        true
 
       el.bind 'ajax:complete', (event, xhr, status) ->
         doc = createDocument xhr.responseText
@@ -26,6 +27,8 @@ $.fn.extend
           
         TL.resetScrollPosition()
         TL.triggerEvent 'page:load'
+        
+        true
 
 $ ->
   $('form[data-turboform]').turboForms()
