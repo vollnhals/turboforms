@@ -21,7 +21,7 @@ $.fn.extend
         TL.changePage TL.extractTitleAndBody(doc)...   
         
         if location
-          TL.cacheCurrentPage
+          TL.cacheCurrentPage()
           url = "#{document.location.protocol}//#{document.location.host}#{location}"
           TL.reflectNewUrl url
           
